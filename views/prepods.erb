@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Рязанский политехнический колледж</h1>
+	<h2>Дистанцинное обучение</h2>
+
+	<h3>Логин: <%= @name %></h3>
+	<h3>Группа: <%= @grp %></h3>
+
+	<form action='/prepods/<%= @name %>/<%= @grp %>' method="post">
+		<table>
+			<caption>Создание нового задания</caption>
+			<tr>
+				<td>Название дисциплины</td>
+				<td><input type="text" name="text1"></td>
+			</tr>
+			<tr>
+				<td>Задание</td>
+				<td><input type="text" name="text2"></td>
+			</tr>
+			<tr>
+				<td colspan=2><input type="submit"></td>
+			</tr>
+		</table>
+	</form>
+
+	<% @file = File.open("./data.txt", "r")%>
+	<p></p>
+	<a href="/">На главную страницу</a>
+	<p></p>
+	<table border="1">
+		<caption>Текущие задания</caption>
+		<tr>
+			<td>Преподаватель</td>
+			<td>Группа</td>
+			<td>Дисциплина</td>
+			<td>Задание</td>
+		</tr>
+		<% @file.each_line do |line| %>
+			<% t1,t2,t3,t4 = line.split("|") %>
+			<% if t2 == @grp %>
+				<tr>
+					<td><%= t1 %></td>
+					<td><%= t2 %></td>
+					<td><%= t3 %></td>
+					<td><%= t4 %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+	<p></p>
+	<a href="/">На главную страницу</a>	
+
+</body>
+</html>

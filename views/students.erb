@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Рязанский политехнический колледж</h1>
+	<h2>Дистанцинное обучение</h2>
+	
+	<h3>Задания для группы: <%= @grp %></h3>
+	<% @file = File.open("./data.txt", "r")%>
+
+	<a href="/">На главную страницу</a>
+	<p></p>
+	<table border="1">
+		<caption>Текущие задания</caption>
+		<tr>
+			<td>Преподаватель</td>
+			<td>Группа</td>
+			<td>Дисциплина</td>
+			<td>Задание</td>
+		</tr>
+		<% @file.each_line do |line| %>
+			<% t1,t2,t3,t4 = line.split("|") %>
+			<% if t2 == @grp %>
+				<tr>
+					<td><%= t1 %></td>
+					<td><%= t2 %></td>
+					<td><%= t3 %></td>
+					<td><%= t4 %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+	<p></p>
+	<a href="/">На главную страницу</a>
+
+</body>
+</html>

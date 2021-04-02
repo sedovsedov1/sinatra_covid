@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Admin panel</h1>
+	<h4>Hello, admin</h4>
+
+	<a href="/">На главную страницу</a>
+	<p></p>
+	<form action='/admin1' method="post">
+
+		<table>
+
+			<tr>
+				<td>Группы<br>
+					<% @file1 = File.open("./groups.txt", "r") %>	
+					<% @temp1 = @file1.read %>
+					<textarea rows="5" cols="100" name="groups"><%= @temp1 %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Преподаватели<br>
+					<% @file2 = File.open("./prepods.txt", "r") %>	
+					<% @temp2 = @file2.read %>
+					<textarea rows="5" cols="100" name="prepods"><%= @temp2 %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Задания<br>
+					<% @file3 = File.open("./data.txt", "r") %>	
+					<% @temp3 = @file3.read %>
+					<textarea rows="5" cols="100" name="data"><%= @temp3 %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Сохранить все изменения"></td>
+			</tr>
+
+		</table>
+
+	</form>
+	<p></p>
+	<a href="/">На главную страницу</a>
+
+</body>
+</html>

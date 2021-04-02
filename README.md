@@ -1,13 +1,9 @@
-Hello 
+Всем привет!
 
-This is my first project. Simple syte for distant education in college from Covid-19
-You must have Ruby + gem Sinatra + hosting for work
+Это мой первый проект на Ruby + Sinatra, представляет собой сайт дистанционного обучения для профессиональнго колледжа (подойдет также для школы или небольшого ВУЗа). Без баз данных, без настройки, без сложных манипуляций. Все, что вам надо: хостинг, поддерживающий Ruby и установленная библиотека Sinatra. Для совсем бюджетного варианта можно запустить проект на стационарном компьютера с адресом 127.0.0.1:4567, а потом расшарить его в сеть с помощью сервиса https://ngrok.com, получится страшный по имени, но совершенно бесплатный сайт.
 
-All information in 3 files:
-1) groups.txt (list groups students, example 10,20,30), all new group new line
-2) prepods.txt (list prepods with his password, example "Ivanov Ivanov1"), all new prepod new line
-3) data.txt (list tasks for students, example "Ivanov|10|Math|Multiply"), all new task new line
+На странице администратора (логин=admin, пароль=p@ssw0rd) можно править список групп (его нельзя делать пустым), список преподавателей (в формате "Фамилия Пароль" через пробел, для каждого человека своя строка), а также список заданий (формат "Преподаватель|Группа|Дисциплина|Задание"). В заданиях можно указывать ссылки, но они не будут "кликаться", их отображение будет текстом. К заданиям нельзя прикреплять файлы, для этого рекомендую использовать файлообменник https://wdfiles.ru, на котором файлы хранятся месяц.
 
-Prepods must remember login/password, admin must know current login/password = admin/p@ssw0rd
+Сайт можно развернуть за час и использовать целый год. В начале нового учебного года рекомендуется очистить файл с заданиями data.txt, а также подправить файлы groups.txt и prepods.txt
 
-Have fun!
+Удачи!

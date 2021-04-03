@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<title></title>
+	
+	<style type="text/css"> 
+		#copyright {
+		position: absolute;
+		bottom: 1em;
+		right: 1em;
+		text-align: right;
+		}
+	</style>
 </head>
 <body>
 
-	<h1>Рязанский политехнический колледж</h1>
-	<h2>Дистанцинное обучение</h2>
+	<h1 class="nav justify-content-center alert alert-primary">ОГБПОУ Рязанский политехнический колледж</h1>
+	<h2 class="nav justify-content-center alert alert-warning">Дистанцинное обучение</h2>
 
 	<% if @enter == 1%>
 		
-		<h3>Преподаватель: <%= @login %></h3>
-		<h3>Выберите вашу группу</h3>
-		<% @file.each_line do |line| %>
-		<a href='/prepods/<%= @login %>/<%= line %>'><%= line %></a> | 
-		<% end %>
+		<div class="nav justify-content-center">
+		<h3>Авторизован преподаватель: <%= @login %> <img src="https://image.flaticon.com/icons/png/128/146/146035.png"></h3>
+		</div>
+
+		<div class="nav justify-content-center">
+			<% @file.each_line do |line| %>
+			<h3><a href='/prepods/<%= @login %>/<%= line %>'><%= line %></a> | </h3>
+			<% end %>
+		</div>
 
 	<% else %>
 		
+		<br><br>
 		<form action="/" method="post">
-			<table>
-				<caption>Вход преподавателя или <a href="/admin">админа</a></caption>	
-				<tr>
-					<td>Логин</td>
-					<td><input type="text" name="login"></td>
-				</tr>
-				<tr>
-					<td>Пароль</td>
-					<td><input type="password" name="password"></td>
-				</tr>
-				<tr>
-					<td><input type="submit"></td>
-				</tr>
-			</table>
+			<center>
+			<h3>Логин</h3>
+			<input type="text" name="login">
+			<h3>Пароль</h3>
+			<input type="password" name="password">
+			<p></p>
+			<input type="submit" class="btn btn-success" value="Войти">
+			</center>
 		</form>
+		<br><br>
 
-		<h3>Выберите вашу группу</h3>
+		<h3 class="nav justify-content-center">Выберите вашу группу</h3>
+		<div class="nav justify-content-center">
 		<% @file.each_line do |line| %>
-			<a href='/groups/<%= line %>'><%= line %></a> | 
+			<h3> <a href='/groups/<%= line %>'> <%= line %> </a> | </h3> 
 		<% end %>
+		</div>
 
 	<% end %>
+
+	<div id="copyright"><a href="/admin">Admin</a></div>
+
 
 </body>
 </html>

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<title></title>
 </head>
 <body>
 
-	<h1>Рязанский политехнический колледж</h1>
-	<h2>Дистанцинное обучение</h2>
+	<h1 class="nav justify-content-center alert alert-primary">ОГБПОУ Рязанский политехнический колледж</h1>
+	<h2 class="nav justify-content-center alert alert-warning">Дистанцинное обучение</h2>
 
-	<h3>Логин: <%= @name %></h3>
+	<h3>Преподаватель: <%= @name %></h3>
 	<h3>Группа: <%= @grp %></h3>
 
 	<form action='/prepods/<%= @name %>/<%= @grp %>' method="post">
@@ -16,23 +17,27 @@
 			<caption>Создание нового задания</caption>
 			<tr>
 				<td>Название дисциплины</td>
-				<td><input type="text" name="text1"></td>
+				<td><input type="text" name="text1" placeholder="Название"></td>
 			</tr>
 			<tr>
-				<td>Задание</td>
-				<td><input type="text" name="text2"></td>
+				<td>Новое задание</td>
+				<td><textarea name="text2" rows="5" cols="100" placeholder="1) Пишите задание в одну строку
+2) Жмите кнопку сохранить новое задание
+3) Посмотрите в самом низу таблицы на новую запись
+4) Жмите на главную страницу
+					"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan=2><input type="submit"></td>
+				<td colspan=2><input type="submit" class="btn btn-success" value="Сохранить новое задание"></td>
 			</tr>
 		</table>
 	</form>
 
 	<% @file = File.open("./data.txt", "r")%>
 	<p></p>
-	<a href="/">На главную страницу</a>
+	<a href="/" class="btn btn-primary btn-sm">На главную страницу</a>
 	<p></p>
-	<table border="1">
+	<table border="1" class="table table-sm">
 		<caption>Текущие задания</caption>
 		<tr>
 			<td>Преподаватель</td>
@@ -53,7 +58,7 @@
 		<% end %>
 	</table>
 	<p></p>
-	<a href="/">На главную страницу</a>	
+	<a href="/" class="btn btn-primary btn-sm">На главную страницу</a>	
 
 </body>
 </html>

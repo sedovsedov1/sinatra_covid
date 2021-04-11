@@ -47,7 +47,7 @@ end
 post '/admin' do
 	@login = params['login']
 	@password = params['password']
-	if @login == 'admin' && @password == 'p@ssw0rd'
+	if @login == 'admin' && @password == 'password'
 		erb :admin1
 	else
 		erb :admin
